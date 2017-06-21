@@ -1,0 +1,46 @@
+{
+  "name": "hxexpress",
+  "version": "1.0.0",
+  "description": "project for express",
+  "main": "www",
+  "scripts": {
+    "test": "echo hello world",
+    "dev":"cross-env NODE_ENV=dev nodemon --debug  --harmony www",
+    "start": "cross-env NODE_ENV=production pm2 start www --node-args='--harmony' --name 'hxexpress'",
+    "stop": "cross-env NODE_ENV=production pm2 stop www --name 'hxexpress'",
+    "restart": "cross-env NODE_ENV=production pm2 restart www --node-args='--harmony' --name 'hxexpress'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hxkuan/hxexpress.git"
+  },
+  "author": "hxkuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hxkuan/hxexpress/issues"
+  },
+  "homepage": "https://github.com/hxkuan/hxexpress#readme",
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "config-lite": "^1.5.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "cross-env": "^5.0.1",
+    "express": "^4.15.3",
+    "express-winston": "^2.4.0",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.10.7",
+    "pm2": "^2.5.0",
+    "winston": "^2.3.1"
+  }
+}
