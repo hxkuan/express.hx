@@ -1,4 +1,5 @@
 # hxexpress
+做为第一个node编写的服务器端，希望能一直的优化下去，作为第一个，也是唯一一个简单的node框架。
 
 - 使用babel
 - 使用winston和express-winston组成日志系统
