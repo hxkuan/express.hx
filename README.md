@@ -7,3 +7,4 @@
 - 使用cross-env和config-lite管理config文件
 - 使用mongodb和mongoose管理db
 - 使用connect-history-api-fallback解决SPA的历史回顾
+FFGIT
