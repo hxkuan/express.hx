@@ -8,6 +8,9 @@ let router = express.Router();
 router.get('/', function(req, res, next) {
   res.send('this is a test page\n'+JSON.stringify(config)+'\n');
 });
-
+router.get('/err500', function(req, res, next) {
+  let name;
+  name.log();
+});
 router.get('/api',t.getTest);
 module.exports = router;

@@ -8,6 +8,20 @@
 - 使用mongodb和mongoose管理db
 - 使用connect-history-api-fallback解决SPA的历史回顾
 
+### 目标功能
+
+- [x] babel的使用 -- 完成
+- [x] 进程管理 -- 完成
+- [x] 数据库管理 -- 完成
+- [x] 数据库基础功能封装 -- 未完成
+- [x] 配置文件的管理 -- 完成
+- [x] 日志系统 -- 完成
+- [x] 日志文件优化-按天管理 -- 未完成
+- [x] 报错提示页面 -- 须要完善
+- [x] cookie，session加入 -- 未完成
+- [x] 登录验证（token，refresh_token,sessionId-手机端的登录） -- 未完成
+- [x] 文件上传，下载功能 -- 未完成
+
 ### 目录结构
 
 ```
