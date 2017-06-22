@@ -5,7 +5,7 @@
   "main": "www",
   "scripts": {
     "test": "echo hello world",
-    "dev":"cross-env NODE_ENV=dev nodemon --debug  --harmony www",
+    "dev": "cross-env NODE_ENV=dev nodemon  --harmony www",
     "start": "cross-env NODE_ENV=production pm2 start www --node-args='--harmony' --name 'hxexpress'",
     "stop": "cross-env NODE_ENV=production pm2 stop www --name 'hxexpress'",
     "restart": "cross-env NODE_ENV=production pm2 restart www --node-args='--harmony' --name 'hxexpress'"
@@ -39,7 +39,7 @@
     "express": "^4.15.3",
     "express-winston": "^2.4.0",
     "mongodb": "^2.2.29",
-    "mongoose": "^4.10.7",
+    "mongoose": "^4.10.8",
     "pm2": "^2.5.0",
     "winston": "^2.3.1"
   }

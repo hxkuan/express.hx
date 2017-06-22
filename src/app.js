@@ -8,8 +8,10 @@ import config from 'config-lite'
 import winston from 'winston';
 import expressWinston from 'express-winston';
 import history from 'connect-history-api-fallback'
-const app=express();
+import db from './modules/db'
+const app = express();
 
+db.connect();
 app.use(expressWinston.logger({
   transports: [
     new (winston.transports.Console)({
