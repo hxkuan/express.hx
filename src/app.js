@@ -10,11 +10,26 @@ import expressWinston from 'express-winston';
 import history from 'connect-history-api-fallback'
 import db from './modules/db'
 import path from 'path'
+import cookieParser from 'cookie-parser'
+import session from 'express-session'
+import redis from 'connect-redis'
 
 let app = express();
 db.connect();
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
+
+app.use(cookieParser());
+
+let redisStore=redis(session);
+app.use(session({
+  name: config.session.name,
+  secret: config.session.secret,
+  resave: true,
+  saveUninitialized: false,
+  cookie: config.session.cookie,
+  store: new redisStore()
+}));
 
 app.use(expressWinston.logger({
   transports: [
