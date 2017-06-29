@@ -18,7 +18,7 @@
 - [x] 日志系统 -- 完成
 - [x] 日志文件优化-按天管理 -- 未完成
 - [x] 报错提示页面 -- 须要完善
-- [x] cookie，session加入 -- 未完成
+- [x] cookie，session加入 -- 完成
 - [x] 登录验证（token，refresh_token,sessionId-手机端的登录） -- 未完成
 - [x] 文件上传，下载功能 -- 未完成
 - [x] Helmet，安全保护--未完成
