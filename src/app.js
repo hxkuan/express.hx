@@ -19,7 +19,7 @@ db.connect();
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
-app.use(cookieParser());
+app.use(cookieParser('HxExpress'+Math.random()));
 
 let redisStore=redis(session);
 app.use(session({
