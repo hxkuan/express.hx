@@ -3,70 +3,37 @@
  */
 'use strict'
 import express from 'express'
-import router from './routes'
 import config from 'config-lite'
-import winston from 'winston';
-import expressWinston from 'express-winston';
 import history from 'connect-history-api-fallback'
-import db from './modules/db'
 import path from 'path'
 import cookieParser from 'cookie-parser'
-import session from 'express-session'
-import redis from 'connect-redis'
+import router from './routes'
+import db from './modules/db'
+import mwLogger from './middlewares/mwLogger'
+import mwError from './middlewares/mwError'
+import mwSession from './middlewares/mwSession'
+import MwEncode from './middlewares/MwEncode'
 
-let app = express();
+const app = express();
 db.connect();
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(cookieParser(config.cookie.secret));
+app.use(mwSession());
+app.use(MwEncode.cookie());
 
-let redisStore=redis(session);
-app.use(session({
-  name: config.session.name,
-  secret: config.session.secret,
-  resave: true,
-  saveUninitialized: false,
-  cookie: config.session.cookie,
-  store: new redisStore()
-}));
 
-app.use(expressWinston.logger({
-  transports: [
-    new (winston.transports.Console)({
-      json: true,
-      colorize: true
-    }),
-    new winston.transports.File({
-      filename: 'logs/success.log'
-    })
-  ]
-}));
+app.use(mwLogger.beforeRoutes());
 
 router(app);
 
-app.use(expressWinston.errorLogger({
-  transports: [
-    new winston.transports.Console({
-      json: true,
-      colorize: true
-    }),
-    new winston.transports.File({
-      filename: 'logs/error.log'
-    })
-  ]
-}));
+app.use(mwLogger.afterRoutes());
 
 app.use(history()); //处理SPA页面中的404问题
 app.use(express.static('./public'));
-app.use((req, res, next) => {
-  res.status(404).render('error', {message: '当前路由不存在', error: {status: 404, stack: ""}});
-});
-app.use((err, req, res, next) => {
-  let error = err;
-  error.status = error.status || 500
-  res.status(500).render('error', {message: '出错啦！', error});
-});
+app.use(mwError.error404());
+app.use(mwError.error500());
 
 
 app.listen(config.port);

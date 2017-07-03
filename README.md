@@ -22,6 +22,7 @@
 - [x] 登录验证（token，refresh_token,sessionId-手机端的登录） -- 未完成
 - [x] 文件上传，下载功能 -- 未完成
 - [x] Helmet，安全保护--未完成
+- [x] cookie的基本加密--未完成
 
 ### 目录结构
 
@@ -38,6 +39,7 @@
 ├── src                            main目录
 │   ├── controllers                C 目录    
 │   ├── models                     M 目录    
+│   ├── middlewares                自定义中间件  
 │   ├── routes                     路由，用于将C和url匹配    
 │   ├── modules                    模块    
 │   └── app.js                     

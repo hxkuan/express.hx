@@ -6,12 +6,12 @@ params.projectName='HxExpress';
 params.port=8001;
 
 params.cookie={
-  secret: params.projectName+Math.random(),
+  secret: params.projectName+'cookie_secret',//这边不能加随机数，否则服务重启，所有的cookie都出问题
 };
 
 params.session={
   name: 'SID',
-  secret: params.projectName+Math.random(),
+  secret: params.projectName+'session_secret',
   cookie: {
     httpOnly: true,
     secure:   false,
