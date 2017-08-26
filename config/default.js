@@ -20,7 +20,7 @@ params.session={
 };
 
 params.db={
-  url: 'mongodb://localhost:27017/'+params.projectName+'_db',
+  url: 'mongodb://web.hxkuan.com:27017/'+params.projectName+'_db',
   login:'',
   pwd:''
 };
